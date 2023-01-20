@@ -1,0 +1,4 @@
+Activating virtual Environment in python
+
+python -m venv venv 
+.\venv\scripts\activate

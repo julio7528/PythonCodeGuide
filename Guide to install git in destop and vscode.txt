@@ -1,0 +1,35 @@
+GitHub SSH Windows Connection
+* Config User: git config --global user.name "Julio Gomes"
+* Config email: git config --global user.email your@email.com
+* Start service: git init
+* Add Files: git add .
+* Commit Files: git commit -m "First Test"
+* Tag commit: git tag "version" "commit key"
+* Generate SSH Key: ssh-keygen -t rsa -C "yourgit@email.dev"
+* Generate SSH File: notepad ~/.ssh/id_rsa.pub
+* Paste in https://github.com/settings/ssh/new
+* Start Connection: ssh -T git@github.com
+* Connect Repository: git remote add origin git@github.com:user/repository
+* List remote Branches: git -r branch
+* Send to GitHub: git push origin master(you can create the branch before and push sing another name)
+* Receive from GitHub: git pull origin master
+
+
+Branch Managering
+* List Local branch: git branch
+* List Remote ranch: git branch -r
+* Create new local branch: git branch <name>
+* Delete local Branch: git branch -D <name> 
+* Switch Local Branch: git checkot <name>
+
+Using VS Code
+* To open folder in vscode using Git Bash: code .
+
+Normal Push
+Open the folder in Visual Studio Code and open the terminal by clicking on the terminal icon in the bottom sidebar or by pressing Ctrl + (Cmd + on macOS).
+Initialize a new repository by running the command git init in the terminal.
+Add all the files to the staging area by running the command git add . in the terminal.
+Commit the changes by running the command git commit -m "Initial commit" in the terminal and replacing "Initial commit" with your commit message.
+Connect your local repository to a remote repository on GitHub by running the command git remote add origin https://github.com/yourusername/yourrepository.git in the terminal, replacing "yourusername" and "yourrepository" with your GitHub username and repository name.
+Push the changes to the remote repository by running the command git push -u origin master in the terminal.
+If the repository doesn't exist in your github account then it will prompt to create one, in that case, after creating the repository run the command git push -u origin master again.
