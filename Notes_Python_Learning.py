@@ -419,3 +419,71 @@ print(list(adjustUsingLambda))
 #Filtering Data using list comprehension
 filteredProduct = filter(lambda x: x['Product'] == 'Egg', product)
 print(list(filteredProduct))
+
+#5 - Using isinstance()
+#Sintax: isinstance(object, classinfo)
+#Utility: Use isinstance() to check if an object is an instance of a class or of a subclass thereof.
+def function(varA):
+    if isinstance(varA, int): #This line is checking if varA is an integer
+        print('varA is an integer')
+    if isinstance(varA, str):
+        print('varA is a string')
+    else:
+        print('varA is not a string or an integer')
+function(1) #This line is calling the function and passing the value 1
+function('1')
+function(1.0)
+function([1,2,3])
+
+#6 - Falsy and Truthy Statements
+#Sintax: if condition:
+#Utility: To check if a condition is true or false
+list = []
+#Creating a function to check if a value is truthy or falsy
+def indentify_truthy(value):
+    return 'falsy' if not value else 'truthy'
+
+record = indentify_truthy(list)
+print(record)
+
+#7 - dir, hasattra and getattr
+#Sintax:
+    #dir(object) Returns a list of attributes and methods of an object
+    #hasattr(object, name) Returns true if an object has an attribute with the given name
+    #getattr(object, name[, default]) Returns the value of the named attribute of an object
+#Utility:
+    #dir() is a built-in function that returns a list of attributes and methods of any object (say functions, modules, strings, lists, dictionaries, etc.)
+    #hasattr() is a built-in function that returns true if an object has an attribute with the given name. It is the equivalent of name in dir(obj).
+    #getattr() is a built-in function that returns the value of the named attribute of an object. If not found, it returns the default value provided to the function.
+#Example of dir:
+vStr = "Hello World"
+#print(dir(vStr))
+
+#Example of getattr:
+vStr = "Hello World"
+vMethod = "lower" #Also have lower, title, capitalize, swapcase, casefold, count, find, index, isalnum, isalpha, isdecimal, isdigit, isidentifier, islower, isnumeric, isprintable, isspace, istitle, isupper, join, ljust, rjust, lstrip, rstrip, strip, partition, rpartition, replace, split, rsplit, splitlines, startswith, endswith, zfill
+if hasattr(vStr, vMethod):
+    vMethod = getattr(vStr, vMethod)
+    print(vMethod())
+
+#8 - Using Itherables and Iterators
+#Sintax: iter(object[, sentinel]) or __iter__()
+#Utility: iter() is used to get an iterator object from an iterable object.
+#Example: Using List
+import sys
+vList = [1, 2, 3, 4, 5]
+print(sys.getsizeof(vList)) # 88 bytes
+vIter = iter(vList) # vIter is an iterator object
+for v in vIter:
+    print(v)
+#Example: Using Genetator
+#Utility: A generator expression in Python is a concise way to create a generator object, 
+# which is an iterator that generates values on the fly, rather than creating a 
+# whole list or other data structure in memory.
+#Example:
+vGenerator = (x**2 for x in range(5))
+print(vGenerator) #Address of generator object
+print(next(vGenerator))
+print(sys.getsizeof(vGenerator)) #Size of generator object
+for i in vGenerator:
+    print(i)

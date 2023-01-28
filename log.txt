@@ -1,0 +1,10 @@
+Log:28/01/2023 18:12:07 - ***** INICIO DA MAIN *****
+Log:28/01/2023 18:12:07 - Database created and Successfully Connected to SQLite
+Log:28/01/2023 18:12:07 - SQLite Database Version is: , [('3.35.5',)]
+Log:28/01/2023 18:12:07 - Table not exists - creating.
+Log:28/01/2023 18:12:07 - SQLite table created
+Log:28/01/2023 18:12:10 - Realizado consulta de cadastro
+Log:28/01/2023 18:12:40 - Realizado Cadastro dos dados: Jair, 34, Rua A 23, 23, Mandarabi
+Log:28/01/2023 18:12:43 - Realizado consulta de cadastro
+Log:28/01/2023 18:12:50 - The SQLite connection is closed
+Log:28/01/2023 18:12:50 - ***** FIM DA MAIN *****
