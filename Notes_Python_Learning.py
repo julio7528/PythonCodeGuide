@@ -287,3 +287,135 @@ cadPessoa.update({'Nome': "Jair",
 
 print(cadPessoa)
 
+
+#1 - Lambda + List.Sort + Sorted
+##1.1 - Example List Sort
+listA = [5,4,5,9,52,14,12,6,99]
+listA.sort()
+print(listA)
+##1.2 - Example Dictionary Sort
+###1.2.1 - Example Dictionary Sort by Key
+listB = [
+        {'name': 'Jair', 'age': 30, 'city': 'São Paulo'},
+        {'name': 'João', 'age': 20, 'city': 'Rio de Janeiro'},
+        {'name': 'Maria', 'age': 25, 'city': 'São Paulo'}
+        ]
+###1.2.2 - function to sort by value
+def sortList(item):
+    return item['name']
+###1.2.3 - changing listB to sort by value
+listB.sort(key=sortList)
+###1.2.4 - printing listB in order by name
+def printList(item):
+    for item in listB:
+        print(item) #Output: Sorted by Name
+
+##1.3 - Using Lambda to sort by name (the same variable listB)
+l1 = sorted(listB, key=lambda item: item['name'])
+l2 = sorted(listB, key=lambda item: item['age'])
+###1.3.1 - Printing listB in order by name using the printList function
+printList(l1)
+printList(l2)
+
+#2 - Lambda
+##2.1 - Creating a function to execute Lambda
+def execute(function, *args): #this line is a function named 'execute' that receive a function and arguments
+    return function(*args) #this line print the result of the function
+##2.2 - Example of Function
+def sum(x, y):
+    return x + y
+##2.3 - Example of Lambda
+print(
+    execute(
+        lambda x, y: x + y, #This line is a lambda function that receive x and y and return x + y
+        2, 3
+    ),
+    execute(sum(2, 3)), #This line is executing the function sum(2, 3) using the 'execute' function
+    sum(2, 3)
+)
+
+#3 - Packing and Unpacking using Dictionaries
+#3.0 - Simple Example
+a,b = 1,2
+a,b = b,a
+print(a,b) #Return 2,1
+#3.1 - Packing and Unpacking using Dictionaries
+person = {'name': 'Jair', 'age': 30, 'city': 'São Paulo'}
+(a1, b1, c1) = person.items()
+print(a1, b1, c1) #Return ('name', 'Jair') ('age', 30) ('city', 'São Paulo')
+#3.3 - Joining Dictionaries
+person = {'name': 'Jair', 'age': 30, 'city': 'São Paulo'}
+personComplementar = {'Dct': '123456', 'Job': 'System Analisys'}
+fullPerson = {**person, **personComplementar}
+print(fullPerson)
+#3.4 - Packing and Unpacking using *Args and **Kwargs
+def allArguments(*args, **kwargs):
+    print('Not Named Arguments: ', args)
+    print('Named Arguments: ', kwargs)
+#3.5 - Packing and Unpacking using *Args and **Kwargs
+    for key, value in kwargs.items():
+        print(f'{key} = {value}')
+#3.6 - configDic is a Dictionary that will be unpacked using **kwargs
+configDic = {'arg1':1, 'arg2':2, 'arg3':3}
+#3.7 - allArguments is a function that receive *args and **kwargs
+allArguments(**configDic)
+
+#4 - Using *Args and **Kwargs to packing and unpacking
+##4.1 - Joining Dictionaries to understand the concept
+dict1 = {'a': 1, 'b': 2}
+dict2 = {'c': 3, 'd': 4}
+dictAll = {**dict1, **dict2}    #This line is joining the dictionaries
+##4.2 - Using Kwarg to unpacking the dictionary
+def funcGeneric(arg1, arg2, **kwargs):
+    print(arg1, arg2)
+    print(**kwargs)
+def funcGeneric2(a, b):
+    print(a, b)
+funcGeneric(1,2, a= 3, b= 4) #Result of print is 1 2 and 3 4
+
+#***********************************************************
+#Packing a Tuple
+varName = {'name': 'Mary', 'Age': 17, 'Classm': 'First'}
+#Unpacking a Tuple
+name, age, Classm = varName.values()
+print(name)
+print(age)
+print(Classm)
+
+#***********************************************************
+#Using Function and double asterisk
+def packAndUnpack(name2, Age2, Classm2):
+    print(name2)
+    print(Age2)
+    print(Classm2)
+#Packing Using Tuple
+varName2 = {'name2': 'Mary', 'Age2': 17, 'Classm2': 'First'}
+#Unpacking Using Tuple and double asterisk in a function
+packAndUnpack(**varName2)
+
+#***********************************************************
+#List Comprehension
+list1 = [1, 2, 3]
+list2 = [4, 5, 6]
+pairs = [(x, y) for x,y in zip(list1, list2)]
+print(pairs)
+
+#***********************************************************
+#Mapping Data List
+numberList = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+squreList = [x**2 for x in numberList]
+print(squreList)
+#Another Example using Dictionary and List
+product = [
+    {'Product': 'Egg', 'Value': 10},
+    {'Product': 'Meat', 'Value': 20},
+    {'Product': 'Onion', 'Value': 15}
+    ]
+adjustPrice = [x['Value']*1.20 for x in product]
+print(adjustPrice)
+#Another Example using Lambda
+adjustUsingLambda = map(lambda x: x['Value']*1.20, product)
+print(list(adjustUsingLambda))
+#Filtering Data using list comprehension
+filteredProduct = filter(lambda x: x['Product'] == 'Egg', product)
+print(list(filteredProduct))
