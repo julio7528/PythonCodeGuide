@@ -33,3 +33,11 @@ Commit the changes by running the command git commit -m "Initial commit" in the 
 Connect your local repository to a remote repository on GitHub by running the command git remote add origin https://github.com/yourusername/yourrepository.git in the terminal, replacing "yourusername" and "yourrepository" with your GitHub username and repository name.
 Push the changes to the remote repository by running the command git push -u origin master in the terminal.
 If the repository doesn't exist in your github account then it will prompt to create one, in that case, after creating the repository run the command git push -u origin master again.
+
+When is necessary to insert a new code or file in an existing Repository
+    git init
+    git clone <url>
+    git add .
+    git commit -m <"name">
+    git push
+
